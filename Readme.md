@@ -83,3 +83,5 @@ The database consists of at least two main tables:
 - **`trains`**: Stores information about trains, including train name, source, destination, total seats, and available seats.
 - **`bookings`**: Stores the booking details, linking users with trains.
 
+## Deployment
+Deployed Link: https://railway-api-cmnh.vercel.app
