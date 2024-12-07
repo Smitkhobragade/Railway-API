@@ -6,7 +6,7 @@ require('dotenv').config();
 const adminRoutes = require('./routes/adminRoutes');
 const userRoutes = require('./routes/userRoutes');
 const trainRoutes = require('./routes/trainRoutes');
-// const initializeBookingsTable = require('./utils/initDb');
+const bookingRoutes = require('./routes/bookingRoutes');
 
 const app = express();
 
@@ -16,6 +16,7 @@ app.use(express.json());
 app.use('/api/admin', adminRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/train', trainRoutes);
+app.use('/api/train', bookingRoutes);
 
 app.get('/', (req, res) => {
   res.status(200).json({

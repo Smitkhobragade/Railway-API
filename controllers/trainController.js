@@ -1,11 +1,13 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const db = require('../utils/db');
 
 const getSeatAvailability = async (req, res) => {
     const { source, destination } = req.query;
   
     try {
+        console.log(source);
+        console.log(destination);
+        
+        
       const query = `
         SELECT * FROM trains 
         WHERE source = ? AND destination = ?`;
