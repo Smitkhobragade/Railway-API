@@ -3,10 +3,15 @@ const cors = require('cors');
 const db = require('./utils/db');
 require('dotenv').config();
 
+const adminRoutes = require('./routes/adminRoutes');
+const initializeUserTable = require('./utils/initDb');
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+app.use('/api/admin', adminRoutes);
 
 app.get('/', (req, res) => {
   res.status(200).json({
@@ -35,7 +40,6 @@ const startServer = async () => {
     try {
       const [result] = await db.query('SELECT 1');
       console.log('Database connected successfully:', result);
-  
       const PORT = process.env.PORT || 3000;
       app.listen(PORT, () => {
         console.log(`Server is running on http://localhost:${PORT}`);
