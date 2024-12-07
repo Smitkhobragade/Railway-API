@@ -4,7 +4,8 @@ const db = require('./utils/db');
 require('dotenv').config();
 
 const adminRoutes = require('./routes/adminRoutes');
-const initializeUserTable = require('./utils/initDb');
+const userRoutes = require('./routes/userRoutes');
+// const initializeBookingsTable = require('./utils/initDb');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/admin', adminRoutes);
+app.use('/api/user', userRoutes);
 
 app.get('/', (req, res) => {
   res.status(200).json({
